@@ -34,10 +34,17 @@ sudo add-apt-repository ppa:numix/ppa
 sudo apt-get update
 sudo apt-get install numix-gtk-theme numix-icon-theme-circle numix-icon-theme-square numix-plymouth-theme numix-wallpaper-*
 
-#nooblab
+##nooblab
 sudo add-apt-repository ppa:noobslab/themes
 sudo add-apt-repository ppa:noobslab/icons
 sudo apt-get update
+sudo apt-get install flatabulous-theme
+
+#mac theme
+sudo add-apt-repository ppa:noobslab/macbuntu
+sudo apt-get update
+sudo apt-get install macbuntu-os-icons-lts-v7
+sudo apt-get install macbuntu-os-ithemes-lts-v7
 
 
 #youtube-dl
