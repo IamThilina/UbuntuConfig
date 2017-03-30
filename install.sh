@@ -23,6 +23,32 @@ sudo apt-get install mysql-server
 ## php
 sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql
 
+# phpmyadmin
+sudo apt-get update
+sudo apt-get install phpmyadmin php-mbstring php-gettext
+sudo phpenmod mcrypt
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+
+# nginx
+sudo apt-get update
+sudo apt-get install nginx
+
+#oracle java
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+
+sudo chmod 777 /etc/environment
+sudo echo "JAVA_HOME='/usr/lib/jvm/java-8-oracle'" >> /etc/environment
+sudo source /etc/environment 
+echo $JAVA_HOME
+
+#maven
+sudo apt-get update
+sudo apt-get install maven
+
+
 #kurento media server
 echo "deb http://ubuntu.kurento.org xenial kms6" | sudo tee /etc/apt/sources.list.d/kurento.list
 wget -O - http://ubuntu.kurento.org/kurento.gpg.key | sudo apt-key add -
@@ -48,6 +74,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 #node http server
 sudo npm install http-server -g
+
+#htop
+sudo apt-get install htop 
 
 #unity-tweak
 sudo apt-get install unity-tweak-tool
