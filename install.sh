@@ -11,6 +11,10 @@ sudo apt-get install git
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install nodejs
 
+# nvm
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+sudo sh ./install_nvm.sh
+
 #bower
 sudo npm install -g bower
 
@@ -41,7 +45,7 @@ sudo apt-get install oracle-java8-installer
 
 sudo chmod 777 /etc/environment
 sudo echo "JAVA_HOME='/usr/lib/jvm/java-8-oracle'" >> /etc/environment
-sudo source /etc/environment 
+sudo source /etc/environment
 echo $JAVA_HOME
 
 #maven
@@ -57,7 +61,8 @@ sudo apt-get install kurento-media-server-6.0
 
 #docker
 sudo apt-get update
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+sudo apt-key adv --key
+server hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 sudo apt-get update
 sudo apt-get install -y docker-engine
@@ -66,6 +71,8 @@ sudo apt-get install -y docker-engine
 sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)"
 sudo chmod +x /usr/local/bin/docker-compose
 
+#yarn
+curl -o- -L https://yarnpkg.com/install.sh | bash
 
 ##############################
 
@@ -76,7 +83,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo npm install http-server -g
 
 #htop
-sudo apt-get install htop 
+sudo apt-get install htop
 
 #unity-tweak
 sudo apt-get install unity-tweak-tool
