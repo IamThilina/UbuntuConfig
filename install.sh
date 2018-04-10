@@ -7,8 +7,16 @@ sudo apt-get update
 #git
 sudo apt-get install git
 
+# curl
+sudo apt install curl
+
+# vim
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt-get update
+sudo apt install vim
+
 #node & npm
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install nodejs
 
 # nvm
@@ -25,7 +33,9 @@ sudo apt-get install apache2
 ## mysql
 sudo apt-get install mysql-server
 ## php
-sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.0
 
 # phpmyadmin
 sudo apt-get update
@@ -33,6 +43,25 @@ sudo apt-get install phpmyadmin php-mbstring php-gettext
 sudo phpenmod mcrypt
 sudo phpenmod mbstring
 sudo systemctl restart apache2
+
+# mysql-workbench
+sudo apt install mysql-workbench
+
+# mongo
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo systemctl start mongod
+
+# redis
+wget http://download.redis.io/releases/redis-stable.tar.gz
+tar xzf redis-stable.tar.gz
+cd redis-stable
+make
+make test
+sudo make install
+redis-server /path/to/redis.conf
 
 # nginx
 sudo apt-get update
@@ -60,12 +89,28 @@ sudo apt-get update
 sudo apt-get install kurento-media-server-6.0
 
 #docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
-sudo apt-key adv --key
-server hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
-sudo apt-get update
-sudo apt-get install -y docker-engine
+apt-cache policy docker-ce
+## output should be similar to
+# docker-ce:
+#   Installed: (none)
+#   Candidate: 18.03.0~ce-0~ubuntu
+#   Version table:
+#      18.03.0~ce-0~ubuntu 500
+#         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+#      17.12.1~ce-0~ubuntu 500
+#         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+#      17.12.0~ce-0~ubuntu 500
+#         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+#      17.09.1~ce-0~ubuntu 500
+#         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+#      17.09.0~ce-0~ubuntu 500
+#         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+#      17.06.2~ce-0~ubuntu 500
+#         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+sudo apt-get install -y docker-ce
 
 #docker-compose
 sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)"
@@ -73,6 +118,18 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 #yarn
 curl -o- -L https://yarnpkg.com/install.sh | bash
+
+#atom
+sudo add-apt-repository ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install atom
+
+#zsh
+sudo apt-get install zsh
+chsh -s $(which zsh) # set zsh as the default shell
+# log out and log in again
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
 
 ##############################
 
